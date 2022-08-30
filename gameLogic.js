@@ -76,9 +76,6 @@ function move(id) {
         return;
     }
     blocked = 1;
-    let x = new Board();
-    x.construct(allHoles, 1);
-    x.movePlayer(3);
 
     
     var numMoves = parseInt(document.getElementById(id).textContent);
@@ -152,14 +149,17 @@ function computerMove() {
     }
     let b = new Board();
     b.construct(allHoles, turn);
+    var startTime = performance.now(); 
     var move = findBest(b);
+    var endTime = performance.now();
+    console.log("Find Move took ", endTime-startTime, " ms");
     if (move > 3.5) {
         move = 3.5 - Math.abs(3.5 - move);
     }
     else {
         move = 3.5 + Math.abs(3.5-move);
     }
-    console.log(move);
+    
     var numMoves = parseInt(allHoles[move].textContent);
     allHoles[move].textContent = 0;
     
@@ -175,7 +175,7 @@ function computerMove() {
             
             if (allHoles[index].id === "CPUstore") {
                 turn = 1;
-                console.log("CPU Goes Again");
+                
                 document.getElementById("message").textContent = "Computer Goes Again!"
                 clearInterval(intervalID);
                 checkCPUEnd();
@@ -365,22 +365,22 @@ function findBest(gameBoard) {
         if (legal == false) {
             continue;
         }
-        let maxScore = minimax(newBoard, 9);
+        let maxScore = minimax(newBoard, 12, -1000, 1000);
         if (maxScore > bestMove[1]) {
             bestMove = [i,maxScore];
         }
 
     }
-    console.log(bestMove);
+    
     return bestMove[0];
 }
-function minimax(gameBoard, depth) {
+function minimax(gameBoard, depth, alpha, beta) {
     if (depth == 0) {
         return gameBoard.score();
     }
     if (gameBoard.playerTurn == false) {
         let bestVal = -100;
-        for (let i = 1; i < 7; i++) {
+        for (let i = 6; i > 0; i--) {
             let newBoard = new Board();
             newBoard.copy(gameBoard);
             let legal = newBoard.moveCPU(i);
@@ -388,17 +388,20 @@ function minimax(gameBoard, depth) {
                 continue;
             }
             if (newBoard.checkEnd() == true) {
-                console.log("End Game Reached");
                 return gameBoard.score();
             }
-            let value = minimax(newBoard, depth-1);
+            let value = minimax(newBoard, depth-1, alpha, beta);
             bestVal = Math.max(bestVal, value);
+            alpha = Math.max(alpha, bestVal);
+            if (beta <= alpha) {
+                break;
+            }
         }
         return bestVal;
     }
     else {
         let bestVal = 100;
-        for (let i = 1; i < 7; i++) {
+        for (let i = 6; i > 0; i--) {
             let newBoard = new Board();
             newBoard.copy(gameBoard);
             let legal = newBoard.movePlayer(i);
@@ -406,16 +409,21 @@ function minimax(gameBoard, depth) {
                 continue;
             }
             if (newBoard.checkEnd() == true) {
-                console.log("End Game Reached");
+                
                 return gameBoard.score();
             }
-            let value = minimax(newBoard, depth-1);
+            let value = minimax(newBoard, depth-1, alpha, beta);
             bestVal = Math.min(bestVal, value);
+            beta = Math.min(beta,bestVal);
+            if (beta <= alpha) {
+                break;
+            }
         }
         return bestVal;
     }
     
 }
+
 /*
 Minimax:
     Try move recursively,
