@@ -1,9 +1,15 @@
+.body {
+    background: rgb(47,72,88);
+background: linear-gradient(315deg, rgba(47,72,88,1) 29%, rgba(52,94,101,1) 100%);
+}
+
+
 .board {
     display: grid;
-    background-color: #C4A484;
+    background-color: #BA8C63;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-gap: 1em;
+    grid-gap: 5px;
     max-width: 600px;
     min-width:400px;
     min-height:200px;
@@ -13,35 +19,46 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     
 .pile1 {
     border-radius: 50%;
      grid-area: 1 / 1 / 3 / 2; 
-     background-color: #C19A6B;
+     background-color: #BA8C63;
      text-align: center;
     line-height: 200px;
+    box-shadow: rgba(50, 50, 50, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 .hole {
     border-radius: 50%;
-    background-color: #C19A6B;
+    background-color: #BA8C63;
     text-align: center;
     line-height: 100px;
     font-weight: bold;
     font-size: 20px;
-    
+    box-shadow: rgba(50, 50, 50, 0.25) 0px 30px 60px -12px inset, rgba(40, 40, 40, 0.3) 0px 18px 36px -18px inset;
+}
+.holePlayer:hover {
+    background-color: #967150;
 }
 .pile2 {
     border-radius: 50%;
         grid-area: 1 / 8 / 3 / 9;
-        background-color: #C19A6B;
+        background-color: #BA8C63;
         text-align: center;
     line-height: 200px;
+    box-shadow: rgba(50, 50, 50, 0.25) 0px 30px 60px -12px inset, rgba(40, 40, 40, 0.3) 0px 18px 36px -18px inset;
     }
 .Message {
     text-align: center;
     line-height: 50px;
+    color:white;
 }
-
+.header {
+    color:white;
+    text-align: center;
+    font-size: 80px;
+}
 
     

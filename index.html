@@ -2,7 +2,8 @@
 <head>
     <link rel="stylesheet" href="style.css">
     </head>
-<body onload="initBoard()">
+<body class="body" onload="initBoard()">
+<h1 class="header">Mancala Bot<h1>
 <div class="board">
     <div class="pile1" id="CPUstore">0</div>
     <div class="hole"></div>
@@ -11,12 +12,12 @@
     <div class="hole"></div>
     <div class="hole"></div>
     <div class="hole"></div>
-    <div class="hole" id="player1" onclick="playerMove(this.id)"></div>
-    <div class="hole" id="player2" onclick="playerMove(this.id)"></div>
-    <div class="hole" id="player3" onclick="playerMove(this.id)"></div>
-    <div class="hole"id="player4" onclick="playerMove(this.id)"></div>
-    <div class="hole" id="player5" onclick="playerMove(this.id)"></div>
-    <div class="hole" id="player6" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer" id="player1" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer" id="player2" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer" id="player3" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer"id="player4" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer" id="player5" onclick="playerMove(this.id)"></div>
+    <div class="hole holePlayer" id="player6" onclick="playerMove(this.id)"></div>
     <div class="pile2" id="playerStore">0</div>
 
 </div>
