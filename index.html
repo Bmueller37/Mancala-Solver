@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body onload="initBoard()">
+<div class="board">
+    <div class="pile1" id="CPUstore">0</div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole" id="player1" onclick="playerMove(this.id)"></div>
+    <div class="hole" id="player2" onclick="playerMove(this.id)"></div>
+    <div class="hole" id="player3" onclick="playerMove(this.id)"></div>
+    <div class="hole"id="player4" onclick="playerMove(this.id)"></div>
+    <div class="hole" id="player5" onclick="playerMove(this.id)"></div>
+    <div class="hole" id="player6" onclick="playerMove(this.id)"></div>
+    <div class="pile2" id="playerStore">0</div>
+
+</div>
+    <div id="message">Player Turn</div>
+<body>
+    <script src="gameLogic.js"></script>
+<html>

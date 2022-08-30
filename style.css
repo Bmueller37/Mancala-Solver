@@ -1,0 +1,42 @@
+.board {
+    display: grid;
+    background-color: #C4A484;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1em;
+    max-width: 600px;
+    min-width:400px;
+    min-height:200px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+    }
+    
+.pile1 {
+    border-radius: 50%;
+     grid-area: 1 / 1 / 3 / 2; 
+     background-color: #C19A6B;
+     text-align: center;
+    line-height: 200px;
+    }
+.hole {
+    border-radius: 50%;
+    background-color: #C19A6B;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    
+}
+.pile2 {
+    border-radius: 50%;
+        grid-area: 1 / 8 / 3 / 9;
+        background-color: #C19A6B;
+        text-align: center;
+    line-height: 200px;
+    }
+
+
+    
